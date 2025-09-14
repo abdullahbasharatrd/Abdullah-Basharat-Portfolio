@@ -1,0 +1,182 @@
+:root{
+  --bg:#0b1220; --bg2:#0e1628; --card:#121c2f; --border:#1f2a44;
+  --text:#e6eefc; --muted:#9fb2d1; --accent:#3b82f6;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(#060b15,#0b1220);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.site{min-height:100%}
+
+/* Header */
+/* Header */
+.header {
+  position: fixed; /* sticky ke bajaye fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* header sab se upar */
+  background: rgba(6,11,21,.7);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Header row layout */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+body {
+  padding-top: 70px; /* header ki height ke barabar adjust karo */
+}
+.brand{font-weight:800;font-size:20px;letter-spacing:.2px}
+.nav{display:none;gap:18px}
+.nav a{color:var(--muted)}
+.nav a:hover{color:#fff}
+.header-ctas{display:flex;align-items:center;gap:10px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.02)}
+.icon-btn:hover{background:rgba(255,255,255,.06)}
+@media(min-width:768px){.nav{display:flex}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:14px;font-weight:600;padding:10px 14px;border:1px solid var(--border);background:rgba(255,255,255,.04)}
+.btn.primary{background:var(--accent);border-color:transparent;color:#fff;box-shadow:0 6px 20px rgba(59,130,246,.35)}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.btn.small{padding:8px 12px;border-radius:12px}
+
+/* Hero */
+.hero{position:relative;padding:72px 0 40px;background:radial-gradient(60% 40% at 80% 25%, rgba(59,130,246,.18), transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:840px){.hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}}
+.hero-title{font-size:56px;line-height:1.05;margin:0;font-weight:900}
+.hero-sub{margin-top:8px;color:var(--muted);font-size:20px}
+.hero-desc{margin-top:18px;color:#c8d6f1;max-width:560px}
+.hero-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.pills {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;     /* mobile pe horizontal scroll aa jayega */
+}
+.pills::-webkit-scrollbar { display: none; } /* scrollbar hide */
+
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:#0e1628;color:#cfe0ff}
+.avatar-wrap{position:relative;display:flex;justify-content:center}
+.avatar{width:280px;height:280px;border-radius:999px;padding:6px;background:linear-gradient(180deg, rgba(59,130,246,.4), rgba(6,182,212,.25));box-shadow:0 0 120px rgba(37,99,235,.25) inset}
+.avatar::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #0b1220 url('public/Mypic.jpg') center/cover no-repeat;
+}
+
+
+
+/* Sections */
+.section{padding:56px 0}
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;  /* neeche thoda space bhi */
+}
+
+.subhead{margin:26px 0 12px;font-size:22px;font-weight:800}
+.muted {
+  display: block;
+  text-align: center;   /* subheading center */
+  margin-bottom: 15px;  /* subheading aur list ke beech thoda gap */
+}
+.small{font-size:14px}
+.tiny{font-size:12px}
+
+/* Cards & grids */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;  /* heading aur subheading ke beech space */
+  text-align: center;   /* heading center align */
+}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.grid.two{grid-template-columns:1fr;gap:16px}
+.grid.three{grid-template-columns:1fr 1fr;gap:16px}
+@media(min-width:820px){.grid{grid-template-columns:1fr 1fr}.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:1fr 1fr 1fr}}
+.row{display:flex;align-items:center;gap:12px}
+.row.gap{gap:10px}
+.stack{display:flex;flex-direction:column;gap:10px}
+.list{margin:10px 0 0 18px;color:#cfe0ff}
+.list li{margin:6px 0}
+
+.github-btn {
+  display: flex;               /* flexbox enable */
+  align-items: center;         /* vertically center */
+  justify-content: center;     /* horizontally center */
+  margin: 15px auto 0 auto;    /* center button itself */
+  text-align: center;
+  max-width: 200px;            /* limit width so it looks neat */
+}
+
+
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.skill{display:flex;align-items:center;gap:10px;border:1px solid var(--border);background:#10192c;border-radius:12px;padding:10px}
+.icon{opacity:.9}
+
+/* Contact */
+.form{display:flex;flex-direction:column;gap:10px}
+.form label{display:flex;flex-direction:column;gap:6px;color:#cfe0ff}
+.form input,.form textarea{border:1px solid var(--border);background:#0f1830;color:#eef5ff;border-radius:12px;padding:10px 12px;outline:none}
+.form input:focus,.form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.2)}
+.contact {
+  display: flex;
+  align-items: center;   /* icon aur text vertically center */
+  gap: 8px;              /* thoda space icon aur text ke beech */
+  margin-bottom: 10px;   /* neeche gap */
+  color: #cfe0ff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.contact:hover {
+  color: #fff;
+}
+/* Footer */
+/* Smart footer: hidden by default */
+.site-footer{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 900;
+  background: rgba(6,11,21,.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-top: 1px solid var(--border);
+  transform: translateY(100%);          /* hidden */
+  transition: transform .35s ease;      /* smooth slide */
+}
+
+.site-footer.show{
+  transform: translateY(0);             /* visible */
+}
+
+.footer-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px; gap:16px;
+}
+
+.footer-ctas{ display:flex; gap:12px; }
+
+/* content under footer not hidden when it's visible */
+body{ padding-bottom:70px; }  /* ≈ footer height */
+
+/* mobile stacking */
+@media (max-width:760px){
+  .footer-row{ flex-direction:column; text-align:center; }
+}
